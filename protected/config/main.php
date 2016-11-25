@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'IT Development Apotek K-24',
-	//'theme'=>'blackboot',
+	'theme'=>'blackboot',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -50,6 +50,14 @@ return array(
 			),
 		),
 		*/
+		// 'urlManager'=>array(
+		// 	'urlFormat'=>'path',
+		// 	'rules'=>array(
+		// 		'gii'=>'gii',
+		// 		'gii/<controller:\w+>'=>'gii/<controller>',
+		// 		'gii<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+		// 	),
+		// ),
 
 		// database settings are configured in database.php
 		'db'=>require(dirname(__FILE__).'/database.php'),
