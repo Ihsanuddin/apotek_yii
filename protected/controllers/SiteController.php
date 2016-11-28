@@ -73,6 +73,23 @@ class SiteController extends Controller
 		$this->render('contact',array('model'=>$model));
 	}
 
+	//menampilkan page bintang / bintangg
+	public function actionBintang()
+	{
+		$model=new BintangForm;
+		if(isset($_POST['BintangForm']))
+		{
+			$model->attributes=$_POST['BintangForm'];
+			if($model->validate())
+			{
+				$length= $model->length;
+				$this->render('bintangg',array('length' =>$length )); //memanggil view bintangg
+			}
+		}else{
+			$this->render('bintang',array('model'=>$model)); //memanggil view bintang
+		}
+	}
+
 	/**
 	 * Displays the login page
 	 */
