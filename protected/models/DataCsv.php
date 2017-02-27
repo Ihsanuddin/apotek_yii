@@ -1,19 +1,18 @@
 <?php
 
 /**
- * This is the model class for table "csv".
+ * This is the model class for table "data_csv".
  *
- * The followings are the available columns in table 'csv':
+ * The followings are the available columns in table 'data_csv':
  * @property integer $id
- * @property string $csv_file
- * @property string $image
+ * @property string $voucher_code
  */
-class Csv extends CActiveRecord
+class DataCsv extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Csv the static model class
+	 * @return DataCsv the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -25,7 +24,7 @@ class Csv extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'csv';
+		return 'data_csv';
 	}
 
 	/**
@@ -36,13 +35,11 @@ class Csv extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			// array('csv_file, image', 'required'),
-			array('csv_file, image', 'length', 'max'=>256),
-			array('csv_file','file','types' => 'csv','allowEmpty'=>false,'on'=>'insert'),
-			array('image','file','types' => 'jpg,png','allowEmpty'=>false,'on'=>'insert'),
+			array('voucher_code', 'required'),
+			array('voucher_code', 'length', 'max'=>256),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, csv_file, image', 'safe', 'on'=>'search'),
+			array('id, voucher_code', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,8 +61,7 @@ class Csv extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'csv_file' => 'Csv File',
-			'image' => 'Image',
+			'voucher_code' => 'Voucher Code',
 		);
 	}
 
@@ -81,8 +77,7 @@ class Csv extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('csv_file',$this->csv_file,true);
-		$criteria->compare('image',$this->image,true);
+		$criteria->compare('voucher_code',$this->voucher_code,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

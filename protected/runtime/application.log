@@ -993,3 +993,337 @@ Stack trace:
 REQUEST_URI=/index.php/csv/admin
 HTTP_REFERER=http://apotek_yii/index.php/site/login
 ---
+2017/02/27 11:28:09 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/YII/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/YII/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/YII/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/YII/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/YII/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/YII/framework/web/CWebApplication.php(283): CController->run('import')
+#8 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController('csv/import')
+#9 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/html/apotek_yii/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/csv/import
+HTTP_REFERER=http://apotek_yii/index.php/csv/create
+---
+2017/02/27 11:29:08 [error] [exception.CException] exception 'CException' with message 'Property "CRequiredValidator.types" is not defined.' in /var/www/YII/framework/base/CComponent.php:174
+Stack trace:
+#0 /var/www/YII/framework/validators/CValidator.php(190): CComponent->__set('types', 'csv')
+#1 /var/www/YII/framework/base/CModel.php(285): CValidator::createValidator('required', Object(CsvForm), 'csv', Array)
+#2 /var/www/YII/framework/base/CModel.php(259): CModel->createValidators()
+#3 /var/www/YII/framework/base/CModel.php(302): CModel->getValidators('csv')
+#4 /var/www/YII/framework/web/helpers/CHtml.php(1197): CModel->isAttributeRequired('csv')
+#5 /var/www/YII/framework/web/widgets/CActiveForm.php(563): CHtml::activeLabelEx(Object(CsvForm), 'csv', Array)
+#6 /var/www/html/apotek_yii/protected/views/csv/csv.php(41): CActiveForm->labelEx(Object(CsvForm), 'csv')
+#7 /var/www/YII/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#8 /var/www/YII/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#9 /var/www/YII/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#10 /var/www/YII/framework/web/CController.php(783): CController->renderPartial('csv', Array, true)
+#11 /var/www/html/apotek_yii/protected/controllers/CsvController.php(93): CController->render('csv', Array)
+#12 /var/www/YII/framework/web/actions/CInlineAction.php(50): CsvController->actionImport()
+#13 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#14 /var/www/YII/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#15 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#16 /var/www/YII/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#17 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#18 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#19 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#20 /var/www/YII/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 /var/www/YII/framework/web/CWebApplication.php(283): CController->run('import')
+#22 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController('csv/import')
+#23 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#24 /var/www/html/apotek_yii/index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/index.php/csv/import
+HTTP_REFERER=http://apotek_yii/index.php/csv/create
+---
+2017/02/27 11:30:50 [error] [exception.CException] exception 'CException' with message 'Property "CRequiredValidator.0" is not defined.' in /var/www/YII/framework/base/CComponent.php:174
+Stack trace:
+#0 /var/www/YII/framework/validators/CValidator.php(190): CComponent->__set('0', 'file')
+#1 /var/www/YII/framework/base/CModel.php(285): CValidator::createValidator('required', Object(CsvForm), 'csv', Array)
+#2 /var/www/YII/framework/base/CModel.php(259): CModel->createValidators()
+#3 /var/www/YII/framework/base/CModel.php(302): CModel->getValidators('csv')
+#4 /var/www/YII/framework/web/helpers/CHtml.php(1197): CModel->isAttributeRequired('csv')
+#5 /var/www/YII/framework/web/widgets/CActiveForm.php(563): CHtml::activeLabelEx(Object(CsvForm), 'csv', Array)
+#6 /var/www/html/apotek_yii/protected/views/csv/csv.php(41): CActiveForm->labelEx(Object(CsvForm), 'csv')
+#7 /var/www/YII/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#8 /var/www/YII/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#9 /var/www/YII/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#10 /var/www/YII/framework/web/CController.php(783): CController->renderPartial('csv', Array, true)
+#11 /var/www/html/apotek_yii/protected/controllers/CsvController.php(93): CController->render('csv', Array)
+#12 /var/www/YII/framework/web/actions/CInlineAction.php(50): CsvController->actionImport()
+#13 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#14 /var/www/YII/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#15 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#16 /var/www/YII/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#17 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#18 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#19 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#20 /var/www/YII/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 /var/www/YII/framework/web/CWebApplication.php(283): CController->run('import')
+#22 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController('csv/import')
+#23 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#24 /var/www/html/apotek_yii/index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/index.php/csv/import
+HTTP_REFERER=http://apotek_yii/index.php/csv/create
+---
+2017/02/27 11:48:22 [error] [exception.CException] exception 'CException' with message 'CsvController cannot find the requested view "csvv".' in /var/www/YII/framework/web/CController.php:879
+Stack trace:
+#0 /var/www/YII/framework/web/CController.php(783): CController->renderPartial('csvv', Array, true)
+#1 /var/www/html/apotek_yii/protected/controllers/CsvController.php(91): CController->render('csvv', Array)
+#2 /var/www/YII/framework/web/actions/CInlineAction.php(50): CsvController->actionImport()
+#3 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/YII/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /var/www/YII/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#10 /var/www/YII/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/YII/framework/web/CWebApplication.php(283): CController->run('import')
+#12 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController('csv/import')
+#13 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /var/www/html/apotek_yii/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php/csv/import
+HTTP_REFERER=http://apotek_yii/index.php/csv/import
+---
+2017/02/27 12:03:29 [error] [php] Undefined index: CsvForm (/var/www/html/apotek_yii/protected/controllers/CsvController.php:87)
+Stack trace:
+#0 /var/www/YII/framework/web/filters/CFilterChain.php(134): CsvController->runAction()
+#1 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CsvController->filterAccessControl()
+#4 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/YII/framework/web/CController.php(266): CsvController->runActionWithFilters()
+#7 /var/www/YII/framework/web/CWebApplication.php(283): CsvController->run()
+#8 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/csv/import
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (87)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 12:04:18 [error] [php] Undefined index: csv (/var/www/html/apotek_yii/protected/controllers/CsvController.php:87)
+Stack trace:
+#0 /var/www/YII/framework/web/filters/CFilterChain.php(134): CsvController->runAction()
+#1 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CsvController->filterAccessControl()
+#4 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/YII/framework/web/CController.php(266): CsvController->runActionWithFilters()
+#7 /var/www/YII/framework/web/CWebApplication.php(283): CsvController->run()
+#8 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/csv/import
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (87)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 13:26:10 [error] [php] Undefined index: CsvForm (/var/www/html/apotek_yii/protected/controllers/CsvController.php:87)
+Stack trace:
+#0 /var/www/YII/framework/web/filters/CFilterChain.php(134): CsvController->runAction()
+#1 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CsvController->filterAccessControl()
+#4 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/YII/framework/web/CController.php(266): CsvController->runActionWithFilters()
+#7 /var/www/YII/framework/web/CWebApplication.php(283): CsvController->run()
+#8 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/csv/import
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (87)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 13:27:10 [error] [php] Undefined index: csv_file (/var/www/html/apotek_yii/protected/controllers/CsvController.php:87)
+Stack trace:
+#0 /var/www/YII/framework/web/filters/CFilterChain.php(134): CsvController->runAction()
+#1 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CsvController->filterAccessControl()
+#4 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/YII/framework/web/CController.php(266): CsvController->runActionWithFilters()
+#7 /var/www/YII/framework/web/CWebApplication.php(283): CsvController->run()
+#8 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/csv/import
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (87)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 13:30:06 [error] [php] fopen(voucher.csv): failed to open stream: No such file or directory (/var/www/html/apotek_yii/protected/controllers/CsvController.php:91)
+Stack trace:
+#0 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /var/www/YII/framework/web/filters/CFilterChain.php(134): CsvController->runAction()
+#2 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#4 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CsvController->filterAccessControl()
+#5 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#7 /var/www/YII/framework/web/CController.php(266): CsvController->runActionWithFilters()
+#8 /var/www/YII/framework/web/CWebApplication.php(283): CsvController->run()
+#9 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#10 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/csv/import
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (91)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:20:51 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (123)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:20:51 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (123)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:21:34 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (123)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:21:34 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (123)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:21:48 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (123)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:21:48 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (123)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:22:45 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (124)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:22:45 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (124)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:23:08 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (124)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:23:08 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (124)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:23:30 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (124)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:23:30 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (124)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:24:48 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:24:48 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:24:48 [error] [php] include(/var/www/html/apotek_yii/protected/extensions/vlo/file/VUpload.php): failed to open stream: No such file or directory (/var/www/YII/framework/YiiBase.php:397)
+Stack trace:
+#0 /var/www/html/apotek_yii/protected/controllers/CsvController.php(78): spl_autoload_call()
+#1 /var/www/YII/framework/web/actions/CInlineAction.php(50): CsvController->actionCreate()
+#2 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /var/www/YII/framework/web/filters/CFilterChain.php(134): CsvController->runAction()
+#4 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#6 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CsvController->filterAccessControl()
+#7 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#9 /var/www/YII/framework/web/CController.php(266): CsvController->runActionWithFilters()
+#10 /var/www/YII/framework/web/CWebApplication.php(283): CsvController->run()
+#11 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#12 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/csv/create
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (78)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:26:21 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:26:21 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:26:21 [error] [php] move_uploaded_file(file/voucher/213070643320170227032621voucher.csv): failed to open stream: No such file or directory (/var/www/YII/framework/web/CUploadedFile.php:197)
+Stack trace:
+#0 /var/www/html/apotek_yii/protected/controllers/CsvController.php(80): VUpload->doUpload()
+#1 /var/www/YII/framework/web/actions/CInlineAction.php(50): CsvController->actionCreate()
+#2 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /var/www/YII/framework/web/filters/CFilterChain.php(134): CsvController->runAction()
+#4 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#6 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CsvController->filterAccessControl()
+#7 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#9 /var/www/YII/framework/web/CController.php(266): CsvController->runActionWithFilters()
+#10 /var/www/YII/framework/web/CWebApplication.php(283): CsvController->run()
+#11 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#12 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/csv/create
+in /var/www/html/apotek_yii/protected/extensions/file/VUpload.php (91)
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (80)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:27:41 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:27:41 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:27:41 [error] [php] include(CArray.php): failed to open stream: No such file or directory (/var/www/YII/framework/YiiBase.php:423)
+Stack trace:
+#0 /var/www/html/apotek_yii/protected/extensions/image/drivers/Image_GD_Driver.php(80): spl_autoload_call()
+#1 /var/www/html/apotek_yii/protected/extensions/image/Image.php(334): Image_GD_Driver->process()
+#2 /var/www/html/apotek_yii/protected/controllers/CsvController.php(102): Image->save()
+#3 /var/www/YII/framework/web/actions/CInlineAction.php(50): CsvController->actionCreate()
+#4 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /var/www/YII/framework/web/filters/CFilterChain.php(134): CsvController->runAction()
+#6 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#8 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CsvController->filterAccessControl()
+#9 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#10 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#11 /var/www/YII/framework/web/CController.php(266): CsvController->runActionWithFilters()
+#12 /var/www/YII/framework/web/CWebApplication.php(283): CsvController->run()
+#13 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#14 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/csv/create
+in /var/www/html/apotek_yii/protected/extensions/image/drivers/Image_GD_Driver.php (80)
+in /var/www/html/apotek_yii/protected/extensions/image/Image.php (334)
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (102)
+2017/02/27 15:51:10 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 15:51:10 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 16:09:25 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 16:09:25 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 16:09:25 [error] [exception.CException] exception 'CException' with message 'Property "CsvController.delimiter" is not defined.' in /var/www/YII/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/html/apotek_yii/protected/controllers/CsvController.php(86): CComponent->__get('delimiter')
+#1 /var/www/YII/framework/web/actions/CInlineAction.php(50): CsvController->actionCreate()
+#2 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#3 /var/www/YII/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /var/www/YII/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#6 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#9 /var/www/YII/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/YII/framework/web/CWebApplication.php(283): CController->run('create')
+#11 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController('csv/create')
+#12 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /var/www/html/apotek_yii/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php/csv/create
+HTTP_REFERER=http://apotek_yii/index.php/csv/create
+---
+2017/02/27 16:11:28 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/27 16:11:28 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
