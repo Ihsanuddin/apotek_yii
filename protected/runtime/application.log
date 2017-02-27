@@ -976,3 +976,20 @@ REQUEST_URI=/apotek_yii/index.php?r=site/bintang
 in C:\xampp\htdocs\apotek_yii\protected\views\site\bintangi.php (23)
 in C:\xampp\htdocs\apotek_yii\protected\controllers\SiteController.php (96)
 in C:\xampp\htdocs\apotek_yii\index.php (13)
+2017/02/27 10:56:55 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/YII/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/YII/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/YII/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/YII/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/YII/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/YII/framework/web/CWebApplication.php(283): CController->run('admin')
+#8 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController('csv/admin')
+#9 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/html/apotek_yii/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/csv/admin
+HTTP_REFERER=http://apotek_yii/index.php/site/login
+---
