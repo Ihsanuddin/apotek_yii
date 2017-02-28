@@ -1644,3 +1644,22 @@ Stack trace:
 REQUEST_URI=/index.php/prevVoucher/update/4
 in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (194)
 in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 16:20:37 [error] [php] exif_imagetype(): Read error! (/var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php:201)
+Stack trace:
+#0 /var/www/YII/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#1 /var/www/YII/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /var/www/YII/framework/web/filters/CFilterChain.php(134): PrevVoucherController->runAction()
+#4 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#6 /var/www/YII/framework/web/filters/CInlineFilter.php(59): PrevVoucherController->filterAccessControl()
+#7 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#9 /var/www/YII/framework/web/CController.php(266): PrevVoucherController->runActionWithFilters()
+#10 /var/www/YII/framework/web/CWebApplication.php(283): PrevVoucherController->run()
+#11 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#12 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/prevVoucher/update/4
+in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (201)
+in /var/www/html/apotek_yii/index.php (13)

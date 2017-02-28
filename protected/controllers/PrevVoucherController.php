@@ -163,21 +163,22 @@ class PrevVoucherController extends Controller
 
 		if(isset($_POST['PrevVoucher']))
 		{
-			$imageResource = PrevVoucher::model()->findByPk($id)->id;
+			$imageResource = PrevVoucher::model()->findByPk($id)->image;
+			// echo $model->image;
+			// exit();
 			$model->attributes=$_POST['PrevVoucher'];
 			if(isset($_FILES['PrevVoucher']['name']['image']) && $_FILES['PrevVoucher']['name']['image'] != '') {
                 // upload image
                 $VUpload = new VUpload();
                 $VUpload->path = 'images/voucher/';
-                $VUpload->doUpload($model, 'image');
+                $VUpload->doUpdate($model, 'image');
 
-                // $fileImage = 'images/voucher/' . $VUpload->getFileName();
-                $fileImage = 'images/voucher/' .;
+                $fileImage = 'images/voucher/' . $VUpload->getFileName();
+                // $fileImage = 'images/voucher/' .;
+            }else {
+            	$model->image = Gallery::model()->findByPk($id)->image;
+            	$fileImage = 'images/voucher/' . $imageResource;
             }
-            // else{
-            	
-            // 	$fileImage = 'images/voucher/' . $imageResource;
-            // }
 
             $color = $model->font_color;
             $style = $model->font_style;
@@ -194,8 +195,8 @@ class PrevVoucherController extends Controller
 			  // $text = "This is a sunset!";
             $pathImage = Yii::getPathOfAlias('webroot') . "/$fileImage";
             
-            echo $pathImage;
-            exit();
+            // echo $pathImage;
+            // exit();
 
 		    if (exif_imagetype($pathImage) == IMAGETYPE_JPEG) {
     			$jpg_image = imagecreatefromjpeg($pathImage);
@@ -226,7 +227,7 @@ class PrevVoucherController extends Controller
 			}else if (exif_imagetype($pathImage) == IMAGETYPE_PNG) {
 				imagepng($jpg_image,$dirImage.".PNG");
 			} 
-			imagedestroy($jpg_image);   
+			// imagedestroy($jpg_image);   
 
 			if($model->save())
 				$this->redirect(array('update','id'=>$model->id));
