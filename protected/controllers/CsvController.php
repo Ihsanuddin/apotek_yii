@@ -60,6 +60,12 @@ class CsvController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
+
+	public function actionCreateWithPreview()
+	{
+		
+	}
+
 	public function actionCreate()
 	{
 		$model=new Csv;
@@ -79,25 +85,8 @@ class CsvController extends Controller
                 $VUpload->path = 'file/voucher/';
                 $VUpload->doUpload($model, 'csv_file');
 
-                $file = 'file/voucher/' . $VUpload->getFileName();
-                $data = array();
-		        if (($handle = fopen($file, 'r')) !== false) {
-		            $i = 0;
-		            while (($row = fgetcsv($handle, 1000, ";")) !== false) {
-		                $modeldata = new DataCsv();
-		                $modeldata->voucher_code = $row[1];
-		              
-		                if ($modeldata->validate()) {
-		                    $modeldata->save();
-		                } else {
-		                    //... code If an error in the preservation
-
-		 
-
-		                }
-		            }
-		            fclose($handle);
-		        }
+                $fileCsv = 'file/voucher/' . $VUpload->getFileName();
+               
 		
 
                   //resizing image           
@@ -115,6 +104,8 @@ class CsvController extends Controller
                   $VUpload->path = 'images/voucher/';
                   $VUpload->doUpload($model, 'image');
 
+                  $fileImage = 'images/voucher/' . $VUpload->getFileName();
+
                   // resizing image mini
                   // Yii::import('application.extensions.image.Image');
                   // $file = 'images/voucher/' . $VUpload->getFileName();
@@ -123,6 +114,69 @@ class CsvController extends Controller
                   // $imagemini->save();
                   // $this->tinyPng($file);
                 }
+
+          //       $data = array();
+		        // if (($handle = fopen($fileCsv, 'r')) !== false) {
+		        //     $i = 0;
+		        //     while (($row = fgetcsv($handle, 1000, ";")) !== false) {
+		        //         $modeldata = new DataCsv();
+		        //         $modeldata->voucher_code = $row[1];
+		              
+		        //         if ($modeldata->validate()) {
+		        //             $modeldata->save();
+		        //         } 
+		        //     }
+		        //     fclose($handle);
+		        // }
+
+                
+
+		        // echo $pathImage;
+		        // exit();
+
+  				
+
+				// Set Path to Font File
+				$font_path = Yii::getPathOfAlias('webroot') . "/themes/blackboot/font/LemonMilk.ttf";
+
+				  // Set Text to Be Printed On Image
+				  // $text = "This is a sunset!";
+
+		        $data = array();
+		        if (($handle = fopen($fileCsv, 'r')) !== false) {
+		            $i = 0;
+		            while (($row = fgetcsv($handle, 1000, ";")) !== false) {
+		                //$modeldata = new DataCsv();
+		                // $modeldata->voucher_code = $row[1];
+		              
+		                // if ($modeldata->validate()) {
+		                //     $modeldata->save();
+		                // } 
+		                $pathImage = Yii::getPathOfAlias('webroot') . "/$fileImage";
+		                if (exif_imagetype($pathImage) == IMAGETYPE_JPEG) {
+    						$jpg_image = imagecreatefromjpeg($pathImage);
+						}else if (exif_imagetype($pathImage) == IMAGETYPE_PNG) {
+							$jpg_image = imagecreatefrompng($pathImage);
+						}
+		        		
+		        		// Allocate A Color For The Text
+ 						$white = imagecolorallocate($jpg_image, 255, 255, 255);
+ 						$black = imagecolorallocate($jpg_image, 0, 0, 0);
+		                imagettftext($jpg_image, 30, 0, 700, 500, $black, $font_path, $row[1]);
+		                
+
+		                if (exif_imagetype($pathImage) == IMAGETYPE_JPEG) {
+		                	$dirImage = Yii::getPathOfAlias('webroot') . "/images/voucherList/".$row[1].".jpg";
+    						imagejpeg($jpg_image,$dirImage);
+						}else if (exif_imagetype($pathImage) == IMAGETYPE_PNG) {
+							$dirImage = Yii::getPathOfAlias('webroot') . "/images/voucherList/".$row[1].".png";
+							imagepng($jpg_image,$dirImage);
+						}
+		                
+  						// imagedestroy($jpg_image);
+		            }
+		            fclose($handle);
+		        }
 			}	
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));

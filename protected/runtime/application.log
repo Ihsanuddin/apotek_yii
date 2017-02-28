@@ -1327,3 +1327,320 @@ in /var/www/html/apotek_yii/index.php (13)
 2017/02/27 16:11:28 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
 in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
 in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 08:01:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/YII/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /var/www/html/apotek_yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2017/02/28 08:03:18 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 08:03:18 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:42:54 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:42:54 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:42:54 [error] [php] imagejpeg(/var/www/html/apotek_yii/images/voucherList/code_voucher.jpg): failed to open stream: Permission denied (/var/www/html/apotek_yii/protected/controllers/CsvController.php:149)
+Stack trace:
+#0 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /var/www/YII/framework/web/filters/CFilterChain.php(134): CsvController->runAction()
+#2 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#4 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CsvController->filterAccessControl()
+#5 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#7 /var/www/YII/framework/web/CController.php(266): CsvController->runActionWithFilters()
+#8 /var/www/YII/framework/web/CWebApplication.php(283): CsvController->run()
+#9 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#10 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/csv/create
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (149)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:44:28 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:44:28 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:44:28 [error] [php] imagettftext(): 3 is not a valid Image resource (/var/www/html/apotek_yii/protected/controllers/CsvController.php:147)
+Stack trace:
+#0 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /var/www/YII/framework/web/filters/CFilterChain.php(134): CsvController->runAction()
+#2 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#4 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CsvController->filterAccessControl()
+#5 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#7 /var/www/YII/framework/web/CController.php(266): CsvController->runActionWithFilters()
+#8 /var/www/YII/framework/web/CWebApplication.php(283): CsvController->run()
+#9 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#10 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/csv/create
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (147)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:50:34 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:50:34 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:50:34 [error] [php] imagettftext(): 3 is not a valid Image resource (/var/www/html/apotek_yii/protected/controllers/CsvController.php:151)
+Stack trace:
+#0 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /var/www/YII/framework/web/filters/CFilterChain.php(134): CsvController->runAction()
+#2 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#4 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CsvController->filterAccessControl()
+#5 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#7 /var/www/YII/framework/web/CController.php(266): CsvController->runActionWithFilters()
+#8 /var/www/YII/framework/web/CWebApplication.php(283): CsvController->run()
+#9 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#10 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/csv/create
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (151)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:54:03 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:54:03 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:58:42 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 09:58:42 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:06:22 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:06:22 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:16:49 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:16:49 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:18:34 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:18:34 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:20:32 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:20:32 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:22:19 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:22:19 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:54:16 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:54:16 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:58:26 [warning] [application] Failed to set unsafe attribute "csv_file" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 10:58:26 [warning] [application] Failed to set unsafe attribute "image" of "Csv".
+in /var/www/html/apotek_yii/protected/controllers/CsvController.php (72)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 14:14:13 [warning] [application] Failed to set unsafe attribute "image" of "PrevVoucher".
+in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (91)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 14:25:06 [warning] [application] Failed to set unsafe attribute "image" of "PrevVoucher".
+in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (91)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 14:59:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/voucherPrev/56TEST4792cjT4720170228021413".' in /var/www/YII/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController('images/voucherP...')
+#1 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /var/www/html/apotek_yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/voucherPrev/56TEST4792cjT4720170228021413
+HTTP_REFERER=http://apotek_yii/index.php/prevVoucher/update/1
+---
+2017/02/28 14:59:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/voucherPrev/56TEST4792cjT4720170228021413".' in /var/www/YII/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController('images/voucherP...')
+#1 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /var/www/html/apotek_yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/voucherPrev/56TEST4792cjT4720170228021413
+HTTP_REFERER=http://apotek_yii/index.php/prevVoucher/update/1
+---
+2017/02/28 15:07:29 [warning] [application] Failed to set unsafe attribute "image" of "PrevVoucher".
+in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (91)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 15:08:29 [warning] [application] Failed to set unsafe attribute "image" of "PrevVoucher".
+in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (91)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 15:18:30 [error] [php] exif_imagetype(): Read error! (/var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php:192)
+Stack trace:
+#0 /var/www/YII/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#1 /var/www/YII/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /var/www/YII/framework/web/filters/CFilterChain.php(134): PrevVoucherController->runAction()
+#4 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#6 /var/www/YII/framework/web/filters/CInlineFilter.php(59): PrevVoucherController->filterAccessControl()
+#7 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#9 /var/www/YII/framework/web/CController.php(266): PrevVoucherController->runActionWithFilters()
+#10 /var/www/YII/framework/web/CWebApplication.php(283): PrevVoucherController->run()
+#11 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#12 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/prevVoucher/update/3
+in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (192)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 15:25:01 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/YII/framework/web/CController.php:337
+Stack trace:
+#0 /var/www/YII/framework/web/CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/YII/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /var/www/YII/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#4 /var/www/YII/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#7 /var/www/YII/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/YII/framework/web/CWebApplication.php(283): CController->run('update')
+#9 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController('prevVoucher/upd...')
+#10 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /var/www/html/apotek_yii/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/prevVoucher/update/3
+HTTP_REFERER=http://apotek_yii/index.php/prevVoucher/create
+---
+2017/02/28 15:31:32 [error] [php] exif_imagetype(): Read error! (/var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php:195)
+Stack trace:
+#0 /var/www/YII/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#1 /var/www/YII/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /var/www/YII/framework/web/filters/CFilterChain.php(134): PrevVoucherController->runAction()
+#4 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#6 /var/www/YII/framework/web/filters/CInlineFilter.php(59): PrevVoucherController->filterAccessControl()
+#7 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#9 /var/www/YII/framework/web/CController.php(266): PrevVoucherController->runActionWithFilters()
+#10 /var/www/YII/framework/web/CWebApplication.php(283): PrevVoucherController->run()
+#11 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#12 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/prevVoucher/update/3
+in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (195)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 15:33:45 [error] [php] exif_imagetype(): Read error! (/var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php:195)
+Stack trace:
+#0 /var/www/YII/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#1 /var/www/YII/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /var/www/YII/framework/web/filters/CFilterChain.php(134): PrevVoucherController->runAction()
+#4 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#6 /var/www/YII/framework/web/filters/CInlineFilter.php(59): PrevVoucherController->filterAccessControl()
+#7 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#9 /var/www/YII/framework/web/CController.php(266): PrevVoucherController->runActionWithFilters()
+#10 /var/www/YII/framework/web/CWebApplication.php(283): PrevVoucherController->run()
+#11 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#12 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/prevVoucher/update/3
+in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (195)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 15:35:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/voucherPrev/56TEST4792cjT4720170228021413".' in /var/www/YII/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController('images/voucherP...')
+#1 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /var/www/html/apotek_yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/voucherPrev/56TEST4792cjT4720170228021413
+HTTP_REFERER=http://apotek_yii/index.php/prevVoucher/update/1
+---
+2017/02/28 15:35:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/voucherPrev/56TEST4792cjT4720170228021413".' in /var/www/YII/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController('images/voucherP...')
+#1 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /var/www/html/apotek_yii/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/voucherPrev/56TEST4792cjT4720170228021413
+HTTP_REFERER=http://apotek_yii/index.php/prevVoucher/update/1
+---
+2017/02/28 15:52:16 [error] [php] Undefined variable: fileImage (/var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php:193)
+Stack trace:
+#0 /var/www/YII/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#2 /var/www/YII/framework/web/filters/CFilterChain.php(134): PrevVoucherController->runAction()
+#3 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#4 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#5 /var/www/YII/framework/web/filters/CInlineFilter.php(59): PrevVoucherController->filterAccessControl()
+#6 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#7 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#8 /var/www/YII/framework/web/CController.php(266): PrevVoucherController->runActionWithFilters()
+#9 /var/www/YII/framework/web/CWebApplication.php(283): PrevVoucherController->run()
+#10 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#11 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/prevVoucher/update/3
+in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (193)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 15:53:25 [error] [php] Undefined variable: fileImage (/var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php:194)
+Stack trace:
+#0 /var/www/YII/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#2 /var/www/YII/framework/web/filters/CFilterChain.php(134): PrevVoucherController->runAction()
+#3 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#4 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#5 /var/www/YII/framework/web/filters/CInlineFilter.php(59): PrevVoucherController->filterAccessControl()
+#6 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#7 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#8 /var/www/YII/framework/web/CController.php(266): PrevVoucherController->runActionWithFilters()
+#9 /var/www/YII/framework/web/CWebApplication.php(283): PrevVoucherController->run()
+#10 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#11 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/prevVoucher/update/3
+in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (194)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 15:56:47 [warning] [application] Failed to set unsafe attribute "image" of "PrevVoucher".
+in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (91)
+in /var/www/html/apotek_yii/index.php (13)
+2017/02/28 15:59:40 [error] [php] Undefined variable: fileImage (/var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php:194)
+Stack trace:
+#0 /var/www/YII/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 /var/www/YII/framework/web/CController.php(309): CInlineAction->runWithParams()
+#2 /var/www/YII/framework/web/filters/CFilterChain.php(134): PrevVoucherController->runAction()
+#3 /var/www/YII/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#4 /var/www/YII/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#5 /var/www/YII/framework/web/filters/CInlineFilter.php(59): PrevVoucherController->filterAccessControl()
+#6 /var/www/YII/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#7 /var/www/YII/framework/web/CController.php(292): CFilterChain->run()
+#8 /var/www/YII/framework/web/CController.php(266): PrevVoucherController->runActionWithFilters()
+#9 /var/www/YII/framework/web/CWebApplication.php(283): PrevVoucherController->run()
+#10 /var/www/YII/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#11 /var/www/YII/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /var/www/html/apotek_yii/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/prevVoucher/update/4
+in /var/www/html/apotek_yii/protected/controllers/PrevVoucherController.php (194)
+in /var/www/html/apotek_yii/index.php (13)
