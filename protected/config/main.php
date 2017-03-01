@@ -34,6 +34,16 @@ return array(
 
 	// application components
 	'components'=>array(
+		'zip'=>array(
+	        'class'=>'application.extensions.zip.EZip',
+	    ),
+	    'zipf'=>array(
+	        'class'=>'application.extensions.zip.FZip',
+	    ),
+		//extension cek file exist
+        'file'=>array(
+            'class'=>'application.extensions.Cfile.CFile',
+        ),
 		'image'=>array(
             'class'=>'application.extensions.image.CImageComponent',
             // GD or ImageMagick
