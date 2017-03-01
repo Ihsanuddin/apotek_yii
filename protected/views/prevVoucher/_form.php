@@ -37,6 +37,12 @@
 		        		</td>
 		        	</tr>
 		        	<tr>
+		        		<td><?php echo $form->labelEx($model,'csv_file'); ?></td>
+		        		<td><?php echo $form->fileField($model,'csv_file',array('size'=>60,'maxlength'=>256)); ?>
+		        			<?php echo $form->error($model,'csv_file'); ?>
+		        		</td>
+		        	</tr>
+		        	<tr>
 		        		<td><?php echo $form->labelEx($model,'coor_x'); ?></td>
 		        		<td>
 		        			<?php echo $form->textField($model,'coor_x'); ?>
@@ -102,7 +108,17 @@
 		        	</tr>
 		        	<tr>
 		        		<td><?php echo CHtml::submitButton($model->isNewRecord ? 'Preview' : 'Preview'); ?></td>
-		        		<td></td>
+		        		<td>
+		        		<?php if (!$model->isNewRecord) { ?>
+		        			<?php echo CHtml::button('Generate',
+							    array(
+							        'submit'=>array('PrevVoucher/generate','id'=>$model->id),
+							        'confirm' => 'Are you sure?'
+							        // or you can use 'params'=>array('id'=>$id)
+							    )
+							); ?>
+		        		<?php } ?>
+		        		</td>
 		        		<td></td>
 		        	</tr>
 		        </tbody>

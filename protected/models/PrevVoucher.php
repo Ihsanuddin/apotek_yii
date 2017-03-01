@@ -46,10 +46,11 @@ class PrevVoucher extends CActiveRecord
 			array('coor_x, coor_y, font_size', 'numerical', 'integerOnly'=>true),
 			array('voucher_name, image, image_voucher', 'length', 'max'=>256),
 			array('font_style', 'length', 'max'=>128),
+			array('csv_file','file','types'=>'csv','allowEmpty'=>false,'on'=>'insert'),
 			array('image','file','types' => 'jpg,png','allowEmpty'=>false,'on'=>'insert'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, voucher_name, image, image_voucher, coor_x, coor_y, font_color, font_size, font_style', 'safe', 'on'=>'search'),
+			array('id, voucher_name, image, image_voucher, csv_file, coor_x, coor_y, font_color, font_size, font_style', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -74,6 +75,7 @@ class PrevVoucher extends CActiveRecord
 			'voucher_name' => 'Voucher Name',
 			'image' => 'Image',
 			'image_voucher' => 'Image Voucher',
+			'csv_file'=> 'Csv File',
 			'coor_x' => 'Coor X',
 			'coor_y' => 'Coor Y',
 			'font_color' => 'Font Color',
@@ -97,6 +99,7 @@ class PrevVoucher extends CActiveRecord
 		$criteria->compare('voucher_name',$this->voucher_name,true);
 		$criteria->compare('image',$this->image,true);
 		$criteria->compare('image_voucher',$this->image_voucher,true);
+		$criteria->compare('csv_file',$this->csv_file,true);
 		$criteria->compare('coor_x',$this->coor_x);
 		$criteria->compare('coor_y',$this->coor_y);
 		$criteria->compare('font_color',$this->font_color);
