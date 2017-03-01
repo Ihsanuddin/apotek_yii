@@ -65,7 +65,7 @@ class CsvController extends Controller
 		$model=new Csv;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Csv']))
 		{
@@ -89,12 +89,7 @@ class CsvController extends Controller
 		              
 		                if ($modeldata->validate()) {
 		                    $modeldata->save();
-		                } else {
-		                    //... code If an error in the preservation
-
-		 
-
-		                }
+		                } 
 		            }
 		            fclose($handle);
 		        }
@@ -116,12 +111,12 @@ class CsvController extends Controller
                   $VUpload->doUpload($model, 'image');
 
                   // resizing image mini
-                  // Yii::import('application.extensions.image.Image');
-                  // $file = 'images/voucher/' . $VUpload->getFileName();
-                  // $imagemini = new Image($file);
-                  // $imagemini->resize(1350, 600);
-                  // $imagemini->save();
-                  // $this->tinyPng($file);
+                  Yii::import('application.extensions.image.Image');
+                  $file = 'images/voucher/' . $VUpload->getFileName();
+                  $imagemini = new Image($file);
+                  $imagemini->resize(1350, 600);
+                  $imagemini->save();
+                  $this->tinyPng($file);
                 }
 			}	
 			if($model->save())
