@@ -367,33 +367,98 @@ class PrevVoucherController extends Controller
 				}
 			}
 			$destination = Yii::getPathOfAlias('webroot') . "/images/generate/".$model->voucher_name;
+			chmod($destination, 0777);
+			// echo "'".$destination.'.zip'."'";
+			// exit();
+			$zipname = 'new.zip';
+			$zip = new ZipArchive;
+			if ($zip->open($zipname, ZipArchive::CREATE) === TRUE) {
+			  	//point 1
+				if ($handle = opendir($destination)) {    
+			  	              // point 2
+					while (false !== ($entry = readdir($handle))) 
+					{
+			  	                                	//point 3             
+						if ($entry != "." && $entry != ".." && !is_dir($destination.'/' . $entry))
+						{
+							//point 4  
+							$zip->addFile($destination.'/' . $entry);             
+						} 
+					}
+					closedir($handle);
+			 
+			 
+				}
+				$zip->close(); 
+				/* download file jika eksis*/
+				if(file_exists($zipname)){
+					header('Content-Type: application/zip');
+					header('Content-disposition: attachment; 
+					filename="'.$zipname.'"');
+					header('Content-Length: ' . filesize($zipname));
+					readfile($zipname);
+					unlink($zipname);
+				 
+				} else{
+					$error = "Proses mengkompresi file gagal  ";
+				}
+			} 
 
-			$the_folder = $destination;
-			$zip_file_name = 'archived_name.zip';
+			
+			// ///Then download the zipped file.
+			// header('Content-Type: application/zip');
+			// header('Content-disposition: attachment; filename='.'new.zip');
+			// header('Content-Length: ' . filesize($destination.'/new.zip'));
+			// readfile('new.zip');
 
-			$za = Yii::app()->zipf;
+			// $files = scandir($pathDirImage,1);
+			// // $files = array('image.jpeg','text.txt','music.wav');
+			// $zipname = 'enter_any_name_for_the_zipped_file.zip';
+			// $zip = new ZipArchive;
+			// $create = $zip->open($zipname, ZipArchive::OVERWRITE);
+			// if ($create == TRUE) {
+			// 	foreach ($files as $file) {
+			// 	  $zip->addFile($file);
+			// 	}
+			// 	$zip->close();
+			// }else{
+			// 	echo "gagal";
+			// }
+			
 
-			$za = new ZIPARCHIVE;
-			$res = $za->open($zip_file_name, ZipArchive::CREATE | ZipArchive::OVERWRITE);
-			if($res === TRUE)    {
-			    $za->addDir($the_folder, basename($the_folder)); $za->close();
-			}
-			else  { echo 'Could not create a zip archive';}
-			$zipname = "'".$destination.".zip'";
-			$zipname = 'adcs.zip';
-		    $zip = new ZipArchive;
-		    $zip->open($zipname, ZipArchive::CREATE | ZipArchive::OVERWRITE);
-		    if ($handle = opendir('.')) {
-		      while (false !== ($entry = readdir($handle))) {
-		        if ($entry != "." && $entry != ".." && !strstr($entry,'.php')) {
-		            $zip->addFile($entry);
-		        }
-		      }
-		      closedir($handle);
-		    }
+			// ///Then download the zipped file.
+			// header('Content-Type: application/zip');
+			// header('Content-disposition: attachment; filename='.$zipname);
+			// header('Content-Length: ' . filesize($zipname));
+			// readfile($zipname);
 
-		    $zip->close();
+			// $the_folder = $destination;
+			// $zip_file_name = 'archived_name.zip';
 
+			// $za = Yii::app()->zipf;
+
+			// $za = new ZIPARCHIVE;
+			// $res = $za->open($zip_file_name, ZipArchive::CREATE | ZipArchive::OVERWRITE);
+			// if($res === TRUE)    {
+			//     $za->addDir($the_folder, basename($the_folder)); $za->close();
+			// }
+			// else  { echo 'Could not create a zip archive';}
+			// echo $destination;
+			// $zipname = "'".$destination.".zip'";
+			// // $zipname = 'adcs.zip';
+		 //    $zip = new ZipArchive;
+		 //    $zip->open($zipname, ZipArchive::CREATE | ZipArchive::OVERWRITE);
+		 //    if ($handle = opendir('.')) {
+		 //      while (false !== ($entry = readdir($handle))) {
+		 //        if ($entry != "." && $entry != ".." && !strstr($entry,'.php')) {
+		 //            $zip->addFile($entry);
+		 //        }
+		 //      }
+		 //      closedir($handle);
+		 //    }
+
+		 //    $ret = $zip->close();
+		 //    echo "Closed with: " . ($ret ? "true" : "false") . "\n";
 		 //    header('Content-Type: application/zip');
 		 //    header("Content-Disposition: attachment; filename='adcs.zip'");
 		 //    header('Content-Length: ' . filesize($zipname));
@@ -402,36 +467,65 @@ class PrevVoucherController extends Controller
 			// echo $destination;
 			// echo $destination.$model->voucher_name.".zip";
 			// exit();
-
-			// $folder = "'".$destination.".zip'";
+			// $path = Yii::getPathOfAlias('webroot') . "/images/generate/";
+			// $folder = "'".$path."file.zip'";
 			// echo $folder;
+			// exit();
 			// $z = new ZipArchive();
 			// $z->open($folder, ZipArchive::OVERWRITE);
-			// $this->folderToZip($destination, $z, null);
+			// $this->folderToZip($destination, $z);
 			// $z->close();
 
 			// echo $pathDirImage;
 			// exit();
-			//$zip = Yii::app()->zip;
-			//$zip->makeZip($destination, "'".$pathDirImage."zip"."'"); // make an ZIP archive
+			// $zip = Yii::app()->zip;
+			// $zip->makeZip($destination, "'".$pathDirImage."zip"."'"); // make an ZIP archive
 
-			// // Get real path for our folder
+			// Get real path for our folder
 			// $rootPath = realpath($pathDirImage);
-
-			// // Initialize archive object
+			// $path = Yii::getPathOfAlias('webroot') . "/images/generate/";
+			// $zipname = "'".$path.$model->voucher_name.".zip'";
+			// echo $zipname;
+			// exit();
+			// chmod($path, 0777);
+			// Initialize archive object
 			// $zip = new ZipArchive();
 			// $zip->open('file.zip', ZipArchive::CREATE | ZipArchive::OVERWRITE);
-
-			// // Create recursive directory iterator
-			// /** @var SplFileInfo[] $files */
+			// $res = $zip->open($zipname, ZipArchive::OVERWRITE|ZipArchive::CREATE);
+			// Create recursive directory iterator
+			/** @var SplFileInfo[] $files */
 			// $files = new RecursiveIteratorIterator(
 			//     new RecursiveDirectoryIterator($rootPath),
 			//     RecursiveIteratorIterator::LEAVES_ONLY
 			// );
 
+			// $file = scandir($pathDirImage,1);
+
+			// echo json_encode($file);
+			// exit();
+			// if ($res === TRUE) {
+				// $zip->addFile("'".$pathDirImage."/".'325gd654fe4534tweg.jpg'."'");
+				// foreach ($file as $value){ 
+				// 	if ($value != "." && $value != "..") {
+				// 		$zip->addFile("'".$pathDirImage."/".$value."'","'".$value."'");
+				// 		exit();
+				// 		unlink($rootPath.DIRECTORY_SEPARATOR.$value);
+				// 	}
+				// }
+				// unlink($rootPath);
+				// $zip->close();
+				// $handle = opendir($pathDirImage);
+				// while ($file = readdir($handle)) { $zip->addFile($pathDirImage . DIRECTORY_SEPARATOR . $file); }
+				// $zip->close();
+			// 	echo "oke";
+			// }else{
+			// 	echo "gagal";
+			// }
+				
+			// exit();
 			// foreach ($files as $name => $file)
 			// {
-			//     // Skip directories (they would be added automatically)
+			    // Skip directories (they would be added automatically)
 			//     if (!$file->isDir())
 			//     {
 			//         // Get real and relative path for current file
@@ -443,7 +537,7 @@ class PrevVoucherController extends Controller
 			//     }
 			// }
 
-			// // Zip archive will be created only after closing object
+			// Zip archive will be created only after closing object
 			// $zip->close();
 
         }
@@ -482,6 +576,48 @@ class PrevVoucherController extends Controller
 	            }
 	        }
 	    }
+	}
+
+	/* creates a compressed zip file */
+	function create_zip($files = array(),$destination = '',$overwrite = false) {
+		//if the zip file already exists and overwrite is false, return false
+		if(file_exists($destination) && !$overwrite) { return false; }
+		//vars
+		$valid_files = array();
+		//if files were passed in...
+		if(is_array($files)) {
+			//cycle through each file
+			foreach($files as $file) {
+				//make sure the file exists
+				if(file_exists($file)) {
+					$valid_files[] = $file;
+				}
+			}
+		}
+		//if we have good files...
+		if(count($valid_files)) {
+			//create the archive
+			$zip = new ZipArchive();
+			if($zip->open($destination,$overwrite ? ZIPARCHIVE::OVERWRITE : ZIPARCHIVE::CREATE) !== true) {
+				return false;
+			}
+			//add the files
+			foreach($valid_files as $file) {
+				$zip->addFile($file,$file);
+			}
+			//debug
+			//echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status;
+			
+			//close the zip -- done!
+			$zip->close();
+			
+			//check to make sure the file exists
+			return file_exists($destination);
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	/**
