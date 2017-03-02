@@ -58,25 +58,32 @@
 		        	</tr>
 		        	<tr>
 		        		<td><?php echo $form->labelEx($model,'font_color'); ?></td>
-		        		<?php $color = array('black'=>'black','white'=>'white'); ?>
+		        		<td>
+		        			<?php echo $form->textField($model,'font_color',array('placeholder'=>'#000000')); ?>
+							<?php echo $form->error($model,'font_color'); ?>
+		        		</td>
+		        	</tr>
+		        	<!-- <tr>
+		        		<td><?php //echo $form->labelEx($model,'font_color'); ?></td>
+		        		<?php //$color = array('black'=>'black','white'=>'white'); ?>
 		        		
-		        		<td><?php $this->widget('ext.select2.ESelect2', array(
-								    'model' => $model,
-								    'attribute' => 'font_color',
-								    'data' => $color,
-								    'options'=>array(
-								    	//'tags'=>true,
-								    	//'tokenSeparators'=>[',', ' '],
-								    ),
-								    'htmlOptions'=>array(
-								    	'placeholder'=>'select color',
+		        		<td><?php //$this->widget('ext.select2.ESelect2', array(
+								    // 'model' => $model,
+								    // 'attribute' => 'font_color',
+								    // 'data' => $color,
+								    // 'options'=>array(
+								    // 	//'tags'=>true,
+								    // 	//'tokenSeparators'=>[',', ' '],
+								    // ),
+								    // 'htmlOptions'=>array(
+								    // 	'placeholder'=>'select color',
 									    //'multiple'=>'multiple',
 									    // 'disabled'=>true,
 									    // 'readonly'=>true
-									  ),
-								)); ?>
-				            <?php echo $form->error($model,'font_color'); ?></td>
-		        	</tr>
+									  //),
+								//)); ?>
+				            <?php //echo $form->error($model,'font_color'); ?></td>
+		        	</tr> -->
 		        	<tr>
 		        		<td><?php echo $form->labelEx($model,'font_size'); ?></td>
 		        		<td>
@@ -107,7 +114,22 @@
 		        		</td>
 		        	</tr>
 		        	<tr>
-		        		<td><?php echo CHtml::submitButton($model->isNewRecord ? 'Preview' : 'Preview'); ?></td>
+		        		<td>
+		        			<?php if ($model->isNewRecord) { 
+		        				//echo CHtml::submitButton($model->isNewRecord ? 'Preview' : 'Preview'); 
+		        				echo CHtml::button('Preview',
+								    array(
+								        'submit'=>array('PrevVoucher/create'),
+								    )
+								); 
+		        			 }elseif (!$model->isNewRecord) { 
+		        				echo CHtml::button('Preview',
+								    array(
+								        'submit'=>array('PrevVoucher/update','id'=>$model->id),
+								    )
+								); 
+		        			 } ?>	
+		        		</td>
 		        		<td>
 		        		<?php if (!$model->isNewRecord) { ?>
 		        			<?php echo CHtml::button('Generate',

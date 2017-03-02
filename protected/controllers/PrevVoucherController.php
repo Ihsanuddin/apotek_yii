@@ -84,7 +84,7 @@ class PrevVoucherController extends Controller
 		$model=new PrevVoucher;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['PrevVoucher']))
 		{
@@ -99,7 +99,7 @@ class PrevVoucherController extends Controller
                   $fileImage = 'images/voucher/' . $VUpload->getFileName();
                 }
 
-                if(isset($_FILES['Csv']['name']['csv_file']) && $_FILES['Csv']['name']['csv_file'] != '') {
+                if(isset($_FILES['PrevVoucher']['name']['csv_file']) && $_FILES['PrevVoucher']['name']['csv_file'] != '') {
 	                // upload csv
 	                $VUpload = new VUpload();
 	                $VUpload->path = 'file/voucher/';
@@ -110,11 +110,15 @@ class PrevVoucherController extends Controller
                 }
 
                 $color = $model->font_color;
+                $rgbColor = $this->hexToRgb($color);
+	            $R = $rgbColor['r'];
+	            $G = $rgbColor['g'];
+	            $B = $rgbColor['b'];
                 $style = $model->font_style;
                 $size  = $model->font_size;
                 $coorX = $model->coor_x;
                 $coorY = $model->coor_y;
-                $code  = "56TEST4792cjT47".$model->id;
+                $code  = "56TEST4792cjT4K24";
 
                 $font_path = Yii::getPathOfAlias('webroot') . "/themes/blackboot/font/".$style.".ttf";
 
@@ -130,11 +134,13 @@ class PrevVoucherController extends Controller
 				}
 		        		
 		        // Allocate A Color For The 
-		        if ($color == 'white') {
-		        	$setColor = imagecolorallocate($jpg_image, 255, 255, 255);
-		        }else{
-		        	$setColor = imagecolorallocate($jpg_image, 0, 0, 0);
-		        }
+		        // if ($color == 'white') {
+		        // 	$setColor = imagecolorallocate($jpg_image, 255, 255, 255);
+		        // }else{
+		        // 	$setColor = imagecolorallocate($jpg_image, 0, 0, 0);
+		        // }
+
+		        $setColor = imagecolorallocate($jpg_image, $R, $G, $B);
  				
  		
 		        imagettftext($jpg_image, $size, 0, $coorX, $coorY, $setColor, $font_path, $code);
@@ -163,6 +169,37 @@ class PrevVoucherController extends Controller
 		));
 	}
 
+	function hexToRgb($hex, $alpha = false) {
+	   $hex      = str_replace('#', '', $hex);
+	   $length   = strlen($hex);
+	   $rgb['r'] = hexdec($length == 6 ? substr($hex, 0, 2) : ($length == 3 ? str_repeat(substr($hex, 0, 1), 2) : 0));
+	   $rgb['g'] = hexdec($length == 6 ? substr($hex, 2, 2) : ($length == 3 ? str_repeat(substr($hex, 1, 1), 2) : 0));
+	   $rgb['b'] = hexdec($length == 6 ? substr($hex, 4, 2) : ($length == 3 ? str_repeat(substr($hex, 2, 1), 2) : 0));
+	   if ( $alpha ) {
+	      $rgb['a'] = $alpha;
+	   }
+	   return $rgb;
+	   // return implode(', ', $rgb);
+	}
+
+	function hex2RGB($hexStr, $returnAsString = false, $seperator = ',') {
+	    $hexStr = preg_replace("/[^0-9A-Fa-f]/", '', $hexStr); // Gets a proper hex string
+	    $rgbArray = array();
+	    if (strlen($hexStr) == 6) { //If a proper hex code, convert using bitwise operation. No overhead... faster
+	        $colorVal = hexdec($hexStr);
+	        $rgbArray['red'] = 0xFF & ($colorVal >> 0x10);
+	        $rgbArray['green'] = 0xFF & ($colorVal >> 0x8);
+	        $rgbArray['blue'] = 0xFF & $colorVal;
+	    } elseif (strlen($hexStr) == 3) { //if shorthand notation, need some string manipulations
+	        $rgbArray['red'] = hexdec(str_repeat(substr($hexStr, 0, 1), 2));
+	        $rgbArray['green'] = hexdec(str_repeat(substr($hexStr, 1, 1), 2));
+	        $rgbArray['blue'] = hexdec(str_repeat(substr($hexStr, 2, 1), 2));
+	    } else {
+	        return false; //Invalid hex color code
+	    }
+	    return $returnAsString ? implode($seperator, $rgbArray) : $rgbArray; // returns the rgb string or the associative array
+	} 
+
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
@@ -170,6 +207,8 @@ class PrevVoucherController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		// $imageResource = $model->image;
+		//print_r($this->hex2RGB('#EB2219'));
+		//print_r($this->hexToRgb('#EB2219'));
 
 		if(isset($_POST['PrevVoucher']))
 		{
@@ -204,9 +243,21 @@ class PrevVoucherController extends Controller
 
             //delete image preview lama
             $pathImagePrevOld = Yii::getPathOfAlias('webroot') . "/images/voucherPrev/".$model->image_voucher;
-            unlink($pathImagePrevOld);
-
+            if (is_file($pathImagePrevOld) && file_exists($pathImagePrevOld)) {
+            	unlink($pathImagePrevOld);
+            }
+            
             $color = $model->font_color;
+            // $color = '#8892BF';
+            $rgbColor = $this->hexToRgb($color);
+            $R = $rgbColor['r'];
+            $G = $rgbColor['g'];
+            $B = $rgbColor['b'];
+
+            //print_r($rgbColor['r']);
+            //print_r($R);
+            // print_r($G);
+            // print_r($B);
             $style = $model->font_style;
             $size  = $model->font_size;
             $coorX = $model->coor_x;
@@ -231,11 +282,12 @@ class PrevVoucherController extends Controller
 			}
 		        		
 		    // Allocate A Color For The 
-		    if ($color == 'white') {
-		    	$setColor = imagecolorallocate($jpg_image, 255, 255, 255);
-		    }else{
-		     	$setColor = imagecolorallocate($jpg_image, 0, 0, 0);
-		    }
+		    // if ($color == 'white') {
+		    // 	$setColor = imagecolorallocate($jpg_image, 255, 255, 255);
+		    // }else{
+		    //  	$setColor = imagecolorallocate($jpg_image, 0, 0, 0);
+		    // }
+		    $setColor = imagecolorallocate($jpg_image, $R, $G, $B);
  				
 		    imagettftext($jpg_image, $size, 0, $coorX, $coorY, $setColor, $font_path, $code);
 
@@ -293,8 +345,9 @@ class PrevVoucherController extends Controller
 			    }else{
 			       	$model->csv_file = PrevVoucher::model()->findByPk($id)->csv_file;
 			       	// $model->save();
-			           $fileCsv = Yii::getPathOfAlias('webroot') . "/file/voucher/".$model->csv_file;
+			        $fileCsv = Yii::getPathOfAlias('webroot') . "/file/voucher/".$model->csv_file;
 			    }
+
 			    if ($model->save()) {
 			           if ($cekCsvDir == 0 || $model->csv_file == '') {
 			           		if ($_FILES['PrevVoucher']['name']['csv_file']== '') {
@@ -306,23 +359,37 @@ class PrevVoucherController extends Controller
 			
 
 		    $pathDirImage = Yii::getPathOfAlias('webroot') . "/images/generate/".$model->voucher_name;
-			//echo $pathDirImage;
-			if( ! file_exists($pathDirImage)) {
+		    $pathZip = Yii::getPathOfAlias('webroot') . "/images/generate/zip/".$model->voucher_name.".zip";
+			// chmod(Yii::getPathOfAlias('webroot') . "/images/generate/", 0777);
+			if(!file_exists($pathDirImage)) {
 			    $mask=umask(0);
 			    mkdir($pathDirImage, 0777);
 			    umask($mask);
 			}
 
+
 			//exit();
 			// $fileCsv = Yii::getPathOfAlias('webroot') . "/file/voucher/".$model->csv_file;
 			// echo $fileCsv;
 			// exit();
+			$zipFile = new ZIPARCHIVE;
+			$tmp_file = tempnam($pathZip,$pathZip);
+			// if (is_file($pathZip) && !file_exists($pathZip)) {
+			// 	$zipFile->open($pathZip,ZIPARCHIVE::CREATE);
+			// }else{
+			// 	$zipFile->open($pathZip,ZIPARCHIVE::OVERWRITE);
+			// }
+			$zipFile->open($tmp_file,ZIPARCHIVE::CREATE);
 			$data = array();
 			if (($handle = fopen($fileCsv, 'r')) !== false) {
 				$i = 0;
-			    while (($row = fgetcsv($handle, 1000, ";")) !== false) {
+			    while (($row = fgetcsv($handle, 1000, ";")) !== false) { $i++;
 					$fileImage = $model->image;
 					$color = $model->font_color;
+					$rgbColor = $this->hexToRgb($color);
+		            $R = $rgbColor['r'];
+		            $G = $rgbColor['g'];
+		            $B = $rgbColor['b'];
 		            $style = $model->font_style;
 		            $size  = $model->font_size;
 		            $coorX = $model->coor_x;
@@ -344,11 +411,13 @@ class PrevVoucherController extends Controller
 					//exit();
 				        		
 				    // Allocate A Color For The 
-				    if ($color == 'white') {
-				    	$setColor = imagecolorallocate($jpg_image, 255, 255, 255);
-				    }else{
-				     	$setColor = imagecolorallocate($jpg_image, 0, 0, 0);
-				    }
+				    // if ($color == 'white') {
+				    // 	$setColor = imagecolorallocate($jpg_image, 255, 255, 255);
+				    // }else{
+				    //  	$setColor = imagecolorallocate($jpg_image, 0, 0, 0);
+				    // }
+
+				    $setColor = imagecolorallocate($jpg_image, $R, $G, $B);
 		 				
 				    imagettftext($jpg_image, $size, 0, $coorX, $coorY, $setColor, $font_path, $row[1]);
 
@@ -360,49 +429,101 @@ class PrevVoucherController extends Controller
 				    // $dirImage = Yii::getPathOfAlias('webroot') . "/images/voucherPrev/".$imageName;
 				    if (exif_imagetype($pathImage) == IMAGETYPE_JPEG) {
 		    			imagejpeg($jpg_image,$dirImage.".jpg");
+		    			chmod($dirImage.".jpg", 0777);
+		    			$zipFile->addFile($dirImage.".jpg",$model->voucher_name.$i.'.jpg');
 					}else if (exif_imagetype($pathImage) == IMAGETYPE_PNG) {
 						imagepng($jpg_image,$dirImage.".PNG");
+						chmod($dirImage.".PNG", 0777);
+						$zipFile->addFile($dirImage.".PNG",$model->voucher_name.$i.'.PNG');
 					} 
+
 					//imagedestroy($jpg_image); 
 				}
 			}
-			$destination = Yii::getPathOfAlias('webroot') . "/images/generate/".$model->voucher_name;
-			chmod($destination, 0777);
-			// echo "'".$destination.'.zip'."'";
+			$zipFile->close();
+			// unlink($pathDirImage);
+			chmod($tmp_file, 0777);
+			# send the file to the browser as a download
+		    header('Content-disposition: attachment; filename='.$model->voucher_name.'.zip');
+		    header('Content-type: application/zip');
+		    readfile($tmp_file);
+
+			
+
+			// $destination = Yii::getPathOfAlias('webroot') . "/images/generate/".$model->voucher_name;
+			// chmod($destination, 0777);
+			// $path = Yii::getPathOfAlias('webroot') . "/images/";
+			// echo $zipname =  "'".$path.'coba.zip'."'";
 			// exit();
-			$zipname = 'new.zip';
-			$zip = new ZipArchive;
-			if ($zip->open($zipname, ZipArchive::CREATE) === TRUE) {
+			// $zipname = 'new.zip';
+			// $zipfile = tempnam(sys_get_temp_dir(), 'zip');
+			// $zip = new ZipArchive;
+
+			// if (file_exists($zipname)) {
+			// 	$create = $zip->open($zipname, ZipArchive::OVERWRITE);
+			// }elseif (!file_exists($zipname)) {
+			// 	$create = $zip->open($zipname, ZipArchive::CREATE);
+			// }
+			
+			// if ($create === TRUE) {
+				// echo "create";
+				// exit();
 			  	//point 1
-				if ($handle = opendir($destination)) {    
-			  	              // point 2
-					while (false !== ($entry = readdir($handle))) 
-					{
-			  	                                	//point 3             
-						if ($entry != "." && $entry != ".." && !is_dir($destination.'/' . $entry))
-						{
-							//point 4  
-							$zip->addFile($destination.'/' . $entry);             
-						} 
-					}
-					closedir($handle);
-			 
-			 
-				}
-				$zip->close(); 
+				// if ($handle = opendir($destination)) {   
+				// 		// echo json_encode($handle);
+				// 		// exit(); 
+			 //  	              // point 2
+				// 	while (false !== ($entry = readdir($handle))) 
+				// 	{
+			 //  	                                	//point 3             
+				// 		if ($entry != "." && $entry != ".." && !is_dir($destination.'/' . $entry))
+				// 		{
+				// 			//point 4  
+				// 			$string = $destination.'/'.$entry;
+				// 			$pattern = '/(\w+) (\d+), (\d+)/i';
+				// 			$replacement = '';
+				// 			// echo $destinationNew = preg_replace($pattern, $replacement, $string);
+				// 			// echo json_encode($destinationNew);
+				// 			echo realpath($string);
+				// 			echo "<br/>";
+				// 			$zip->addFile(realpath($string),realpath($string));
+				// 			//$zip->addFile($destination.'/' . $entry);             
+				// 		} 
+				// 	}
+				// 	closedir($handle);
+			 // 		// exit();
+				// }
+				// $file = $destination.'/'.'325gd654fe4534tweg.jpg';
+				// $tmpname = tempnam(sys_get_temp_dir(), 'test');
+			 //    file_put_contents($tmpname, file_get_contents($file));
+			 //    $zip->addFile($tmpname, basename($file));
+			 //    unlink($tmpname);
+				// echo $zip->addFile($destination.'/'.'325gd654fe4534tweg.jpg');
+				// exit();
+				// $files = scandir($pathDirImage,1);
+				// foreach ($files as $file) {
+				// 	echo $destination.'/'.$file;
+				// 	echo "<br/>";
+				// 	 $zip->addFile($destination.'/'.$file);
+				// }exit();
+				 				// $zip->close();
+				 				// unlink($zipfile);
 				/* download file jika eksis*/
-				if(file_exists($zipname)){
-					header('Content-Type: application/zip');
-					header('Content-disposition: attachment; 
-					filename="'.$zipname.'"');
-					header('Content-Length: ' . filesize($zipname));
-					readfile($zipname);
-					unlink($zipname);
+				// if(file_exists($zipname)){
+				// 	header('Content-Type: application/zip');
+				// 	header('Content-disposition: attachment; 
+				// 	filename="'.$zipname.'"');
+				// 	header('Content-Length: ' . filesize($zipname));
+				// 	readfile($zipname);
+				// 	unlink($zipname);
 				 
-				} else{
-					$error = "Proses mengkompresi file gagal  ";
-				}
-			} 
+				// } else{
+				// 	$error = "Proses mengkompresi file gagal  ";
+				// }
+			// }else{
+			// 	echo "gagal";
+			// 	exit();
+			// }
 
 			
 			// ///Then download the zipped file.
@@ -541,12 +662,26 @@ class PrevVoucherController extends Controller
 			// $zip->close();
 
         }
+
+
 		
-			// $this->redirect(array('update','id'=>$model->id));
+			//$this->redirect(array('update','id'=>$model->id));
 			$this->render('update',array(
 				'model'=>$model,
 			));
-		
+			
+			// header("Pragma: public");
+			// header("Expires: 0");
+			// header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+			// header("Cache-Control: private", false);
+			// header("Content-Type: application/zip");
+			// header("Content-Disposition: attachment; filename=" . basename($zipFile) . ";" );
+			// header("Content-Transfer-Encoding: binary");
+			// header("Content-Length: " . filesize($zipFile));
+			// readfile($zipFile);
+
+			// //deletes file when its done...
+			// unlink($zipFile);
 	}
 
 	public function folderToZip($folder, &$zipFile, $subfolder = null) {
