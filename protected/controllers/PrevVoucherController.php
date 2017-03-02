@@ -370,7 +370,7 @@ class PrevVoucherController extends Controller
 			chmod($destination, 0777);
 			// echo "'".$destination.'.zip'."'";
 			// exit();
-			$zipname = 'new.zip';
+			$zipname = Yii::getPathOfAlias('webroot') . "/images/generate/".'new.zip';
 			$zip = new ZipArchive;
 			if ($zip->open($zipname, ZipArchive::CREATE) === TRUE) {
 			  	//point 1
@@ -387,11 +387,11 @@ class PrevVoucherController extends Controller
 					}
 					closedir($handle);
 			 
-			 
 				}
 				$zip->close(); 
 				/* download file jika eksis*/
 				if(file_exists($zipname)){
+					header('Content-Description: File Transfer');
 					header('Content-Type: application/zip');
 					header('Content-disposition: attachment; 
 					filename="'.$zipname.'"');
