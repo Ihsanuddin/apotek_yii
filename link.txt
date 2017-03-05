@@ -7,3 +7,5 @@ https://davidsimpson.me/2008/09/28/find-nearest-store-page-using-php-mysql-and-g
 http://gis.stackexchange.com/questions/31628/find-points-within-a-distance-using-mysql
 
 https://developers.google.com/maps/articles/phpsqlsearch_v3#findnearsql
+
+http://jsfiddle.net/bryan_weaver/XxuJ4/
