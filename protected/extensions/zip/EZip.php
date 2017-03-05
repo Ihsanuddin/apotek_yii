@@ -1,5 +1,5 @@
 <?
-class EZip extends CApplicationComponent {
+class EZip extends CComponent {
 	public function infosZip ($src, $data=true){
         if (($zip = zip_open(realpath($src))))
         {
